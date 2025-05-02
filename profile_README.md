@@ -32,7 +32,8 @@
 
 
 ---
-
+<!--
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=rajatrv-ciso&show_icons=true&theme=default" alt="Rajat's GitHub Stats" />
 </p>
+-->
