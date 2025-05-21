@@ -24,13 +24,6 @@
 <!-- REPO_LIST_START -->
 <!-- REPO_LIST_END -->
 
-
-
-### 📦 Featured Repositories
-
-- [**Cyber Risk Register Dashboard**](https://github.com/rajatrv-ciso/cyber-risk-register-dashboard)  
-  Excel templates for managing cybersecurity risk and executive reporting
-
 ---
 
 ### 📫 Let’s Connect
