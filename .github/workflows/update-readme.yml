@@ -42,8 +42,8 @@ jobs:
             /<!-- REPO_LIST_START -->/ {print; print r; start=1; next}
             /<!-- REPO_LIST_END -->/ {start=0}
             !start
-          ' README.md > new_README.md
-          mv new_README.md README.md
+          ' profile_README.md > new_README.md
+          mv new_README.md profile_README.md
 
       - name: 📤 Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
