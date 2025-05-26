@@ -7,7 +7,7 @@ on:
   repository_dispatch:
 
 permissions:
-  contents: write  #  gives permissions for the bot to update pages
+  contents: write  # Required for commit and push
 
 jobs:
   update-readme:
@@ -16,14 +16,13 @@ jobs:
       - name: ⬇️ Checkout code
         uses: actions/checkout@v4
 
-      - name: 🧠 Fetch public repos
+      - name: 🧠 Fetch user repositories
         uses: actions/github-script@v7
         id: generate
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const user = 'rajatrv-ciso';
-            const { data: repos } = await github.rest.repos.listForUser({
-              username: user,
+            const { data: repos } = await github.rest.repos.listForAuthenticatedUser({
               per_page: 100,
               sort: "updated"
             });
@@ -45,8 +44,8 @@ jobs:
             /<!-- REPO_LIST_START -->/ {print; print r; start=1; next}
             /<!-- REPO_LIST_END -->/ {start=0}
             !start
-          ' profile_README.md > new_README.md
-          mv new_README.md profile_README.md
+          ' README.md > new_README.md
+          mv new_README.md README.md
 
       - name: 📤 Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
