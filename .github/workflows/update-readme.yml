@@ -1,53 +1,49 @@
-name: 🔁 Update Profile README
+name: Update Profile with Latest Repos
 
 on:
   schedule:
-    - cron: '0 * * * *'  # every hour
-  workflow_dispatch:
-  repository_dispatch:
+    # Runs every hour at minute 0
+    - cron: '0 * * * *'
+  workflow_dispatch: # Allows manual triggering
+  push:
+    branches: [ main ]
 
 permissions:
-  contents: write  # Required for commit and push
+  contents: write
+  metadata: read
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: ⬇️ Checkout code
-        uses: actions/checkout@v4
-
-      - name: 🧠 Fetch user repositories
-        uses: actions/github-script@v7
-        id: generate
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const { data: repos } = await github.rest.repos.listForAuthenticatedUser({
-              per_page: 100,
-              sort: "updated"
-            });
-
-            const featured = repos
-              .filter(r => !r.fork && !r.private)
-              .map(r => `- [**${r.name}**](${r.html_url})  \n  ${r.description || 'No description'}`)
-              .slice(0, 5)
-              .join('\n\n');
-
-            const output = `<!-- REPO_LIST_START -->\n${featured}\n<!-- REPO_LIST_END -->`;
-            core.setOutput('result', output);
-
-      - name: 🛠️ Update README
-        run: |
-          CONTENT="${{ steps.generate.outputs.result }}"
-          awk -v r="$CONTENT" '
-            BEGIN {start=0}
-            /<!-- REPO_LIST_START -->/ {print; print r; start=1; next}
-            /<!-- REPO_LIST_END -->/ {start=0}
-            !start
-          ' README.md > new_README.md
-          mv new_README.md README.md
-
-      - name: 📤 Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "🔄 Auto-update featured repositories"
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        npm init -y
+        npm install @octokit/rest
+        
+    - name: Update README with latest repos
+      run: node update-repos.js
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add rajatrv-ciso/profile_README.md
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Auto-update: Latest repositories $(date)"
+          git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
