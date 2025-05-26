@@ -17,6 +17,10 @@
 - 🧠 Speaker, mentor, and advocate for secure-by-design product thinking
 - 📈 Known for embedding trust and compliance into go-to-market success
 
+
+<!-- REPOS-START -->
+<!-- REPOS-END -->
+
 ---
 
 ### 📦 Featured Repositories
