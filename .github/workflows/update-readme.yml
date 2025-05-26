@@ -24,16 +24,19 @@ jobs:
               per_page: 100,
               sort: "updated"
             });
+
             const featured = repos
               .filter(r => !r.fork && !r.private)
               .map(r => `- [**${r.name}**](${r.html_url})  \n  ${r.description || 'No description'}`)
               .slice(0, 5)
               .join('\n\n');
-            return `<!-- REPO_LIST_START -->\n${featured}\n<!-- REPO_LIST_END -->`;
+
+            const output = `<!-- REPO_LIST_START -->\n${featured}\n<!-- REPO_LIST_END -->`;
+            core.setOutput('result', output);
 
       - name: 🛠️ Update README
         run: |
-          CONTENT=$(echo "${{ steps.generate.outputs.result }}" | sed 's/"/\"/g')
+          CONTENT="${{ steps.generate.outputs.result }}"
           awk -v r="$CONTENT" '
             BEGIN {start=0}
             /<!-- REPO_LIST_START -->/ {print; print r; start=1; next}
