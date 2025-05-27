@@ -47,5 +47,6 @@ jobs:
         else
           git commit -m "Auto-update: Latest repositories $(date)"
           git push
+        fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
