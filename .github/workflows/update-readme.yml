@@ -10,7 +10,6 @@ on:
 
 permissions:
   contents: write
-  metadata: read
 
 jobs:
   update-readme:
