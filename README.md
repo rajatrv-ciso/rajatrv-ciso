@@ -19,6 +19,11 @@
 
 
 <!-- REPOS-START -->
+### 🔄 My Recent Activity
+
+- [rajatrv-ciso](https://github.com/rajatrv-ciso/rajatrv-ciso) - No description provided
+- [pci-dss-policy-map](https://github.com/rajatrv-ciso/pci-dss-policy-map) - Visual breakdown of PCI DSS policy for handling cardholder data
+- [cyber-risk-register-dashboard](https://github.com/rajatrv-ciso/cyber-risk-register-dashboard) - Excel templates for risk management and executive cybersecurity dashboards
 <!-- REPOS-END -->
 
 ---
@@ -26,6 +31,16 @@
 ### 📦 Featured Repositories
 
 <!-- REPO_LIST_START -->
+
+### My Repositories (3)
+
+- [rajatrv-ciso](https://github.com/rajatrv-ciso/rajatrv-ciso) - No description provided
+- [pci-dss-policy-map](https://github.com/rajatrv-ciso/pci-dss-policy-map) - Visual breakdown of PCI DSS policy for handling cardholder data
+- [cyber-risk-register-dashboard](https://github.com/rajatrv-ciso/cyber-risk-register-dashboard) - Excel templates for risk management and executive cybersecurity dashboards
+
+### Forked Repositories (0)
+
+
 
 <!-- REPO_LIST_END -->
 
