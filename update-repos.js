@@ -1,6 +1,12 @@
-const { Octokit } = require('@octokit/rest');
-const fs = require('fs');
-const path = require('path');
+// ESM module
+import { Octokit } from '@octokit/rest';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Get current directory
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 async function updateReadme() {
   try {

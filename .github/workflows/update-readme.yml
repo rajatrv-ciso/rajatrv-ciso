@@ -28,6 +28,7 @@ jobs:
       run: |
         npm init -y
         npm install @octokit/rest
+        npm pkg set type=module
         
     - name: Update README with latest repos
       run: node update-repos.js
