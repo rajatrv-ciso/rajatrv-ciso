@@ -1,0 +1,182 @@
+2025-05-28T11:29:20.1782009Z Current runner version: '2.324.0'
+2025-05-28T11:29:20.1820473Z ##[group]Operating System
+2025-05-28T11:29:20.1821789Z Ubuntu
+2025-05-28T11:29:20.1822530Z 24.04.2
+2025-05-28T11:29:20.1823275Z LTS
+2025-05-28T11:29:20.1824083Z ##[endgroup]
+2025-05-28T11:29:20.1824952Z ##[group]Runner Image
+2025-05-28T11:29:20.1825873Z Image: ubuntu-24.04
+2025-05-28T11:29:20.1826867Z Version: 20250511.1.0
+2025-05-28T11:29:20.1828923Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250511.1/images/ubuntu/Ubuntu2404-Readme.md
+2025-05-28T11:29:20.1831359Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250511.1
+2025-05-28T11:29:20.1833076Z ##[endgroup]
+2025-05-28T11:29:20.1833858Z ##[group]Runner Image Provisioner
+2025-05-28T11:29:20.1834852Z 2.0.437.1
+2025-05-28T11:29:20.1835720Z ##[endgroup]
+2025-05-28T11:29:20.1837573Z ##[group]GITHUB_TOKEN Permissions
+2025-05-28T11:29:20.1840272Z Contents: write
+2025-05-28T11:29:20.1841149Z Metadata: read
+2025-05-28T11:29:20.1842292Z ##[endgroup]
+2025-05-28T11:29:20.1845807Z Secret source: Actions
+2025-05-28T11:29:20.1847004Z Prepare workflow directory
+2025-05-28T11:29:20.2344780Z Prepare all required actions
+2025-05-28T11:29:20.2404596Z Getting action download info
+2025-05-28T11:29:20.5280238Z ##[group]Download immutable action package 'actions/checkout@v4'
+2025-05-28T11:29:20.5281220Z Version: 4.2.2
+2025-05-28T11:29:20.5282353Z Digest: sha256:ccb2698953eaebd21c7bf6268a94f9c26518a7e38e27e0b83c1fe1ad049819b1
+2025-05-28T11:29:20.5283515Z Source commit SHA: 11bd71901bbe5b1630ceea73d27597364c9af683
+2025-05-28T11:29:20.5284179Z ##[endgroup]
+2025-05-28T11:29:20.6091500Z ##[group]Download immutable action package 'actions/setup-node@v4'
+2025-05-28T11:29:20.6092272Z Version: 4.4.0
+2025-05-28T11:29:20.6092998Z Digest: sha256:9427cefe82346e992fb5b949e3569b39d537ae41aa3086483b14eceebfc16bc1
+2025-05-28T11:29:20.6094006Z Source commit SHA: 49933ea5288caeca8642d1e84afbd3f7d6820020
+2025-05-28T11:29:20.6094696Z ##[endgroup]
+2025-05-28T11:29:20.7769741Z Complete job name: update-readme
+2025-05-28T11:29:20.8557145Z ##[group]Run actions/checkout@v4
+2025-05-28T11:29:20.8558283Z with:
+2025-05-28T11:29:20.8558696Z   repository: rajatrv-ciso/rajatrv-ciso
+2025-05-28T11:29:20.8559405Z   token: ***
+2025-05-28T11:29:20.8559775Z   ssh-strict: true
+2025-05-28T11:29:20.8560158Z   ssh-user: git
+2025-05-28T11:29:20.8560547Z   persist-credentials: true
+2025-05-28T11:29:20.8560981Z   clean: true
+2025-05-28T11:29:20.8561365Z   sparse-checkout-cone-mode: true
+2025-05-28T11:29:20.8561822Z   fetch-depth: 1
+2025-05-28T11:29:20.8562201Z   fetch-tags: false
+2025-05-28T11:29:20.8562582Z   show-progress: true
+2025-05-28T11:29:20.8562980Z   lfs: false
+2025-05-28T11:29:20.8563333Z   submodules: false
+2025-05-28T11:29:20.8563748Z   set-safe-directory: true
+2025-05-28T11:29:20.8564389Z ##[endgroup]
+2025-05-28T11:29:21.0625321Z Syncing repository: rajatrv-ciso/rajatrv-ciso
+2025-05-28T11:29:21.0627080Z ##[group]Getting Git version info
+2025-05-28T11:29:21.0628241Z Working directory is '/home/runner/work/rajatrv-ciso/rajatrv-ciso'
+2025-05-28T11:29:21.0629205Z [command]/usr/bin/git version
+2025-05-28T11:29:21.0684584Z git version 2.49.0
+2025-05-28T11:29:21.0713002Z ##[endgroup]
+2025-05-28T11:29:21.0727587Z Temporarily overriding HOME='/home/runner/work/_temp/fa711971-8c51-43f3-878c-534ff1883886' before making global git config changes
+2025-05-28T11:29:21.0728950Z Adding repository directory to the temporary git global config as a safe directory
+2025-05-28T11:29:21.0734288Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/rajatrv-ciso/rajatrv-ciso
+2025-05-28T11:29:21.0776086Z Deleting the contents of '/home/runner/work/rajatrv-ciso/rajatrv-ciso'
+2025-05-28T11:29:21.0779785Z ##[group]Initializing the repository
+2025-05-28T11:29:21.0784019Z [command]/usr/bin/git init /home/runner/work/rajatrv-ciso/rajatrv-ciso
+2025-05-28T11:29:21.0872185Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-05-28T11:29:21.0873528Z hint: is subject to change. To configure the initial branch name to use in all
+2025-05-28T11:29:21.0874722Z hint: of your new repositories, which will suppress this warning, call:
+2025-05-28T11:29:21.0875593Z hint:
+2025-05-28T11:29:21.0876432Z hint: 	git config --global init.defaultBranch <name>
+2025-05-28T11:29:21.0877641Z hint:
+2025-05-28T11:29:21.0878471Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-05-28T11:29:21.0879767Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-05-28T11:29:21.0880838Z hint:
+2025-05-28T11:29:21.0881388Z hint: 	git branch -m <name>
+2025-05-28T11:29:21.0882572Z Initialized empty Git repository in /home/runner/work/rajatrv-ciso/rajatrv-ciso/.git/
+2025-05-28T11:29:21.0900292Z [command]/usr/bin/git remote add origin https://github.com/rajatrv-ciso/rajatrv-ciso
+2025-05-28T11:29:21.0944818Z ##[endgroup]
+2025-05-28T11:29:21.0945668Z ##[group]Disabling automatic garbage collection
+2025-05-28T11:29:21.0951706Z [command]/usr/bin/git config --local gc.auto 0
+2025-05-28T11:29:21.0988468Z ##[endgroup]
+2025-05-28T11:29:21.0989128Z ##[group]Setting up auth
+2025-05-28T11:29:21.0999645Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-05-28T11:29:21.1037984Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-05-28T11:29:21.1352578Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-05-28T11:29:21.1388003Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-05-28T11:29:21.1636532Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-05-28T11:29:21.1694720Z ##[endgroup]
+2025-05-28T11:29:21.1696013Z ##[group]Fetching the repository
+2025-05-28T11:29:21.1706660Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +6f650902d961ee3c81af023c0ef48e5c36175ffa:refs/remotes/origin/main
+2025-05-28T11:29:21.5252374Z From https://github.com/rajatrv-ciso/rajatrv-ciso
+2025-05-28T11:29:21.5254025Z  * [new ref]         6f650902d961ee3c81af023c0ef48e5c36175ffa -> origin/main
+2025-05-28T11:29:21.5285641Z ##[endgroup]
+2025-05-28T11:29:21.5286522Z ##[group]Determining the checkout info
+2025-05-28T11:29:21.5289060Z ##[endgroup]
+2025-05-28T11:29:21.5296328Z [command]/usr/bin/git sparse-checkout disable
+2025-05-28T11:29:21.5343595Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-05-28T11:29:21.5374009Z ##[group]Checking out the ref
+2025-05-28T11:29:21.5379472Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-05-28T11:29:21.5429420Z Switched to a new branch 'main'
+2025-05-28T11:29:21.5432996Z branch 'main' set up to track 'origin/main'.
+2025-05-28T11:29:21.5439579Z ##[endgroup]
+2025-05-28T11:29:21.5477475Z [command]/usr/bin/git log -1 --format=%H
+2025-05-28T11:29:21.5500443Z 6f650902d961ee3c81af023c0ef48e5c36175ffa
+2025-05-28T11:29:21.5778230Z ##[group]Run actions/setup-node@v4
+2025-05-28T11:29:21.5779046Z with:
+2025-05-28T11:29:21.5779465Z   node-version: 18
+2025-05-28T11:29:21.5779970Z   always-auth: false
+2025-05-28T11:29:21.5780501Z   check-latest: false
+2025-05-28T11:29:21.5781306Z   token: ***
+2025-05-28T11:29:21.5781744Z ##[endgroup]
+2025-05-28T11:29:21.7556771Z Found in cache @ /opt/hostedtoolcache/node/18.20.8/x64
+2025-05-28T11:29:21.7563748Z ##[group]Environment details
+2025-05-28T11:29:22.1565055Z node: v18.20.8
+2025-05-28T11:29:22.1565803Z npm: 10.8.2
+2025-05-28T11:29:22.1566382Z yarn: 1.22.22
+2025-05-28T11:29:22.1568132Z ##[endgroup]
+2025-05-28T11:29:22.1680155Z ##[group]Run npm init -y
+2025-05-28T11:29:22.1680715Z npm init -y
+2025-05-28T11:29:22.1681175Z npm install @octokit/rest
+2025-05-28T11:29:22.1681960Z npm pkg set type=module
+2025-05-28T11:29:22.1877236Z shell: /usr/bin/bash -e {0}
+2025-05-28T11:29:22.1878247Z ##[endgroup]
+2025-05-28T11:29:24.9153753Z Wrote to /home/runner/work/rajatrv-ciso/rajatrv-ciso/package.json:
+2025-05-28T11:29:24.9154332Z 
+2025-05-28T11:29:24.9154541Z {
+2025-05-28T11:29:24.9154925Z   "name": "rajatrv-ciso",
+2025-05-28T11:29:24.9155329Z   "version": "1.0.0",
+2025-05-28T11:29:24.9156473Z   "description": "<h1 align=\"center\">👋 Hi, I'm Rajat — Boardroom-Certified CISO</h1>",
+2025-05-28T11:29:24.9157240Z   "main": "update-repos.js",
+2025-05-28T11:29:24.9157950Z   "scripts": {
+2025-05-28T11:29:24.9158773Z     "test": "echo \"Error: no test specified\" && exit 1"
+2025-05-28T11:29:24.9159284Z   },
+2025-05-28T11:29:24.9159564Z   "keywords": [],
+2025-05-28T11:29:24.9159987Z   "author": "",
+2025-05-28T11:29:24.9160353Z   "license": "ISC"
+2025-05-28T11:29:24.9160704Z }
+2025-05-28T11:29:24.9160878Z 
+2025-05-28T11:29:24.9160896Z 
+2025-05-28T11:29:24.9170780Z 
+2025-05-28T11:29:26.2561507Z 
+2025-05-28T11:29:26.2562240Z added 19 packages, and audited 20 packages in 1s
+2025-05-28T11:29:26.2563713Z 
+2025-05-28T11:29:26.2564136Z 1 package is looking for funding
+2025-05-28T11:29:26.2564621Z   run `npm fund` for details
+2025-05-28T11:29:26.2572188Z 
+2025-05-28T11:29:26.2572696Z found 0 vulnerabilities
+2025-05-28T11:29:26.4096504Z ##[group]Run node update-repos.js
+2025-05-28T11:29:26.4096856Z node update-repos.js
+2025-05-28T11:29:26.4154118Z shell: /usr/bin/bash -e {0}
+2025-05-28T11:29:26.4154346Z env:
+2025-05-28T11:29:26.4154847Z   GITHUB_TOKEN: ***
+2025-05-28T11:29:26.4155083Z   USERNAME: rajatrv-ciso
+2025-05-28T11:29:26.4155292Z   INCLUDE_ALL_REPOS: true
+2025-05-28T11:29:26.4155489Z ##[endgroup]
+2025-05-28T11:29:26.7474537Z README updated successfully with all repositories!
+2025-05-28T11:29:26.7714161Z ##[group]Run git config --local user.email "action@github.com"
+2025-05-28T11:29:26.7714595Z git config --local user.email "action@github.com"
+2025-05-28T11:29:26.7714937Z git config --local user.name "GitHub Action"
+2025-05-28T11:29:26.7715198Z git add README.md
+2025-05-28T11:29:26.7715431Z if git diff --staged --quiet; then
+2025-05-28T11:29:26.7715683Z   echo "No changes to commit"
+2025-05-28T11:29:26.7715899Z else
+2025-05-28T11:29:26.7716156Z   git commit -m "Auto-update: Latest repositories $(date)"
+2025-05-28T11:29:26.7716458Z   git push
+2025-05-28T11:29:26.7716643Z fi
+2025-05-28T11:29:26.7769842Z shell: /usr/bin/bash -e {0}
+2025-05-28T11:29:26.7770059Z env:
+2025-05-28T11:29:26.7770479Z   GITHUB_TOKEN: ***
+2025-05-28T11:29:26.7770658Z ##[endgroup]
+2025-05-28T11:29:26.7921449Z No changes to commit
+2025-05-28T11:29:26.8065003Z Post job cleanup.
+2025-05-28T11:29:26.9780847Z Post job cleanup.
+2025-05-28T11:29:27.0719451Z [command]/usr/bin/git version
+2025-05-28T11:29:27.0759325Z git version 2.49.0
+2025-05-28T11:29:27.0804267Z Temporarily overriding HOME='/home/runner/work/_temp/8e7cea64-ebf3-4427-b6a2-9186507aec24' before making global git config changes
+2025-05-28T11:29:27.0805755Z Adding repository directory to the temporary git global config as a safe directory
+2025-05-28T11:29:27.0811138Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/rajatrv-ciso/rajatrv-ciso
+2025-05-28T11:29:27.0847910Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-05-28T11:29:27.0881284Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-05-28T11:29:27.1114609Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-05-28T11:29:27.1136900Z http.https://github.com/.extraheader
+2025-05-28T11:29:27.1149584Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-05-28T11:29:27.1179698Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-05-28T11:29:27.1510967Z Cleaning up orphan processes

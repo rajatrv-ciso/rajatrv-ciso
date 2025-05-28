@@ -65,23 +65,64 @@ ${forkedRepos.map(repo => `- [${repo.name}](${repo.html_url}) - ${repo.descripti
 
     // Read the README file
     const readmePath = path.join(process.cwd(), 'README.md');
-    let readmeContent = fs.readFileSync(readmePath, 'utf8');
+    let readmeContent = '';
+    
+    // Try to read README.md, if it doesn't exist, use profile_README.md as template
+    try {
+      readmeContent = fs.readFileSync(readmePath, 'utf8');
+    } catch (error) {
+      if (error.code === 'ENOENT') {
+        const profileReadmePath = path.join(process.cwd(), 'profile_README.md');
+        readmeContent = fs.readFileSync(profileReadmePath, 'utf8');
+        console.log('Using profile_README.md as template');
+      } else {
+        throw error;
+      }
+    }
 
     // Update the repositories section
-    readmeContent = readmeContent.replace(
-      /<!-- REPOS-START -->[\s\S]*?<!-- REPOS-END -->/,
-      `<!-- REPOS-START -->\n### 🔄 My Recent Activity\n\n${recentRepos}\n<!-- REPOS-END -->`
-    );
+    if (readmeContent.includes('<!-- REPOS-START -->') && readmeContent.includes('<!-- REPOS-END -->')) {
+      readmeContent = readmeContent.replace(
+        /<!-- REPOS-START -->[\s\S]*?<!-- REPOS-END -->/,
+        `<!-- REPOS-START -->\n### 🔄 My Recent Activity\n\n${recentRepos}\n<!-- REPOS-END -->`
+      );
+    } else {
+      console.log('Warning: REPOS markers not found in README. Adding them now.');
+      // Add the section if it doesn't exist
+      readmeContent += '\n\n<!-- REPOS-START -->\n### 🔄 My Recent Activity\n\n';
+      readmeContent += recentRepos;
+      readmeContent += '\n<!-- REPOS-END -->\n';
+    }
 
     // Update the repository list section with all repositories
-    readmeContent = readmeContent.replace(
-      /<!-- REPO_LIST_START -->[\s\S]*?<!-- REPO_LIST_END -->/,
-      `<!-- REPO_LIST_START -->\n${allReposFormatted}\n<!-- REPO_LIST_END -->`
-    );
+    if (readmeContent.includes('<!-- REPO_LIST_START -->') && readmeContent.includes('<!-- REPO_LIST_END -->')) {
+      readmeContent = readmeContent.replace(
+        /<!-- REPO_LIST_START -->[\s\S]*?<!-- REPO_LIST_END -->/,
+        `<!-- REPO_LIST_START -->\n${allReposFormatted}\n<!-- REPO_LIST_END -->`
+      );
+    } else {
+      console.log('Warning: REPO_LIST markers not found in README. Adding them now.');
+      // Add the section if it doesn't exist
+      readmeContent += '\n\n<!-- REPO_LIST_START -->\n';
+      readmeContent += allReposFormatted;
+      readmeContent += '\n<!-- REPO_LIST_END -->\n';
+    }
 
     // Write the updated content back to the README
     fs.writeFileSync(readmePath, readmeContent);
-    console.log('README updated successfully with all repositories!');
+    
+    // Also update profile_README.md to keep it in sync (if it exists)
+    try {
+      const profileReadmePath = path.join(process.cwd(), 'profile_README.md');
+      if (fs.existsSync(profileReadmePath)) {
+        fs.writeFileSync(profileReadmePath, readmeContent);
+        console.log('Both README.md and profile_README.md updated successfully!');
+      } else {
+        console.log('README.md updated successfully with all repositories!');
+      }
+    } catch (error) {
+      console.log('README.md updated successfully, but failed to update profile_README.md:', error.message);
+    }
   } catch (error) {
     console.error('Error updating README:', error);
     process.exit(1);

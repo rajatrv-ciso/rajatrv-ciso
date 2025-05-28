@@ -7,6 +7,8 @@ on:
   workflow_dispatch: # Allows manual triggering
   push:
     branches: [ main ]
+    paths-ignore:
+      - 'README.md' # Prevent infinite loop of commits
 
 permissions:
   contents: write
